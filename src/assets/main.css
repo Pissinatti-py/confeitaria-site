@@ -1,0 +1,114 @@
+:root {
+  /* a página tem um mundo visual só, quente e definido. Sem esta declaração o
+     Chrome aplica auto dark mode e reescreve todas as cores por conta própria. */
+  color-scheme: light;
+
+  --cacau: #17100d;
+  --cacau-medio: #2a1c15;
+  --merengue: #f8ede7;
+  --merengue-2: #fff7f3;
+  --pistache: #7e9463;
+  --framboesa: #b03b54;
+  --caramelo: #ce8544;
+  --fumaca: #6e5b53;
+  --tinta: #241813;
+
+  --display: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --corpo: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+  --grao: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--merengue);
+  color: var(--tinta);
+  font-family: var(--corpo);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  text-wrap: balance;
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--framboesa);
+  outline-offset: 3px;
+}
+
+/* ---------- superfícies (entram as fotos) ---------- */
+
+.ganache {
+  background:
+    radial-gradient(55% 45% at 28% 26%, #4a2c1e 0%, transparent 68%),
+    radial-gradient(45% 55% at 78% 68%, #3a2317 0%, transparent 70%),
+    linear-gradient(155deg, #34231a 0%, #150e0a 100%);
+}
+.creme {
+  background:
+    radial-gradient(50% 50% at 70% 30%, #e8c9a8 0%, transparent 65%),
+    radial-gradient(60% 60% at 25% 75%, #d9a97f 0%, transparent 70%),
+    linear-gradient(150deg, #c9986e 0%, #7c513a 100%);
+}
+.framboesa-fundo {
+  background:
+    radial-gradient(50% 50% at 30% 30%, #c75268 0%, transparent 70%),
+    radial-gradient(55% 55% at 75% 72%, #8a2436 0%, transparent 72%),
+    linear-gradient(150deg, #9b2f45 0%, #3a121c 100%);
+}
+.pistache-fundo {
+  background:
+    radial-gradient(55% 50% at 35% 35%, #93a87a 0%, transparent 70%),
+    radial-gradient(50% 50% at 80% 70%, #5e7349 0%, transparent 72%),
+    linear-gradient(150deg, #6e8455 0%, #2e3a24 100%);
+}
+
+/* opacidade simples em vez de mix-blend-mode: camadas promovidas fazem o blend
+   contra fundo transparente e viram caixas escuras */
+.grao::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--grao);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* ---------- movimento (scroll-driven, compartilhado entre seções) ---------- */
+
+@keyframes flutua-lento {
+  from {
+    translate: 0 10vh;
+  }
+  to {
+    translate: 0 -10vh;
+  }
+}
+@keyframes flutua-medio {
+  from {
+    translate: 0 24vh;
+  }
+  to {
+    translate: 0 -24vh;
+  }
+}
+@keyframes aproxima {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.55;
+  }
+}
