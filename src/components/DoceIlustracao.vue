@@ -3,13 +3,19 @@ withDefaults(
   defineProps<{
     variante?: 'pistache' | 'framboesa' | 'caramelo'
     frutas?: number
+    foto?: string
   }>(),
   { frutas: 0 },
 )
 </script>
 
 <template>
-  <div class="doce" :class="variante && `doce--${variante}`" aria-hidden="true">
+  <div
+    class="doce"
+    :class="[variante && `doce--${variante}`, foto && 'doce--foto']"
+    aria-hidden="true"
+  >
+    <img v-if="foto" class="doce-foto" :src="foto" alt="" decoding="async" />
     <span v-for="n in frutas" :key="n" class="fruta" />
   </div>
 </template>
@@ -21,11 +27,15 @@ withDefaults(
   aspect-ratio: 1;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 38% 32%, rgba(255, 255, 255, 0.32), transparent 55%),
+    radial-gradient(
+      circle at calc(38% + var(--mx, 0) * 70%) calc(32% + var(--my, 0) * 70%),
+      rgba(255, 255, 255, 0.32),
+      transparent 55%
+    ),
     conic-gradient(from 20deg, #3e2418, #6a4227, #3e2418, #5a3620, #3e2418);
   box-shadow:
     0 2px 0 rgba(255, 255, 255, 0.14) inset,
-    0 30px 60px -20px rgba(0, 0, 0, 0.75);
+    0 12px 22px -14px rgba(0, 0, 0, 0.6);
 }
 .doce::before {
   content: '';
@@ -43,6 +53,29 @@ withDefaults(
 }
 .doce--caramelo::before {
   background: radial-gradient(circle at 42% 36%, #edb877, #a5642c 78%);
+}
+.doce-foto {
+  position: absolute;
+  inset: 11%;
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.doce--foto::after {
+  content: '';
+  position: absolute;
+  inset: 11%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at calc(34% + var(--mx, 0) * 80%) calc(28% + var(--my, 0) * 80%),
+      rgba(255, 247, 243, 0.2),
+      transparent 42%
+    ),
+    radial-gradient(circle, transparent 58%, rgba(23, 16, 13, 0.42) 100%),
+    rgba(206, 133, 68, 0.1);
+  pointer-events: none;
 }
 .fruta {
   position: absolute;

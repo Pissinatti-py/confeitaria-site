@@ -2,18 +2,22 @@
   /* a página tem um mundo visual só, quente e definido. Sem esta declaração o
      Chrome aplica auto dark mode e reescreve todas as cores por conta própria. */
   color-scheme: light;
+  scrollbar-color: var(--carmim-claro) var(--cacau);
+  scrollbar-width: thin;
 
   --cacau: #17100d;
   --cacau-medio: #2a1c15;
   --merengue: #f8ede7;
   --merengue-2: #fff7f3;
   --pistache: #7e9463;
-  --framboesa: #b03b54;
-  --caramelo: #ce8544;
+  --carmim: #aa1a48;
+  --carmim-claro: #e0587e;
+  --carmim-escuro: #86123a;
   --fumaca: #6e5b53;
   --tinta: #241813;
 
-  --display: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --cursiva: 'Great Vibes', 'Iowan Old Style', cursive;
   --corpo: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
 
@@ -26,7 +30,7 @@
 
 body {
   margin: 0;
-  background: var(--merengue);
+  background: var(--cacau);
   color: var(--tinta);
   font-family: var(--corpo);
   font-size: 17px;
@@ -39,12 +43,40 @@ h2,
 h3 {
   font-family: var(--display);
   font-weight: 400;
+  font-variation-settings: 'SOFT' 100;
   text-wrap: balance;
   margin: 0;
 }
 
+h2 {
+  font-family: var(--cursiva);
+}
+
+.botao {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  background: var(--carmim);
+  color: var(--merengue-2);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    translate 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.botao:hover {
+  background: var(--carmim-escuro);
+}
+@media (prefers-reduced-motion: reduce) {
+  .botao {
+    transition: none;
+  }
+}
+
 :focus-visible {
-  outline: 2px solid var(--framboesa);
+  outline: 2px solid var(--carmim-claro);
   outline-offset: 3px;
 }
 
@@ -86,7 +118,42 @@ h3 {
   pointer-events: none;
 }
 
+#app {
+  position: relative;
+}
+#app > :is(header, section) {
+  --fundido: clamp(4rem, 14vh, 9rem);
+  --topo: var(--fundido);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(0 0 0 / 0.16) calc(var(--topo) * 0.25),
+    rgb(0 0 0 / 0.5) calc(var(--topo) * 0.5),
+    rgb(0 0 0 / 0.84) calc(var(--topo) * 0.75),
+    #000 var(--topo),
+    #000 calc(100% - var(--fundido)),
+    rgb(0 0 0 / 0.84) calc(100% - var(--fundido) * 0.75),
+    rgb(0 0 0 / 0.5) calc(100% - var(--fundido) * 0.5),
+    rgb(0 0 0 / 0.16) calc(100% - var(--fundido) * 0.25),
+    transparent
+  );
+}
+#app > header {
+  --topo: 0px;
+}
+
 /* ---------- movimento (scroll-driven, compartilhado entre seções) ---------- */
+
+@property --mx {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+@property --my {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
 
 @keyframes flutua-lento {
   from {
