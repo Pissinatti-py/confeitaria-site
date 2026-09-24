@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import IconeInstagram from './IconeInstagram.vue'
 import { historia, loja } from '@/content'
-import fotoMilho from '@/assets/fotos/site/historia-milho.webp'
-import fotoLaranja from '@/assets/fotos/site/historia-laranja.webp'
 </script>
 
 <template>
   <section class="historia ganache grao">
     <div class="historia-camada h-lenta">
-      <img class="foto foto-a" :src="fotoMilho" alt="" loading="lazy" decoding="async" />
+      <img class="foto foto-a" :src="historia.fotoA" alt="" loading="lazy" decoding="async" />
     </div>
     <div class="historia-camada h-media">
-      <img class="foto foto-b" :src="fotoLaranja" alt="" loading="lazy" decoding="async" />
+      <img class="foto foto-b" :src="historia.fotoB" alt="" loading="lazy" decoding="async" />
     </div>
     <div class="historia-texto">
       <h2>{{ historia.titulo }}</h2>

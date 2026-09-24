@@ -1,0 +1,122 @@
+backend:
+  name: github
+  repo: Pissinatti-py/confeitaria-site
+  branch: main
+  squash_merges: true
+
+publish_mode: editorial_workflow
+local_backend: true
+locale: pt
+
+media_folder: public/fotos
+public_folder: /fotos
+
+collections:
+  - name: site
+    label: Conteúdo do site
+    editor:
+      preview: false
+    files:
+      - name: cardapio
+        label: Cardápio
+        file: src/conteudo/cardapio.json
+        fields:
+          - name: itens
+            label: Itens
+            label_singular: item
+            widget: list
+            summary: '{{fields.titulo}}'
+            fields:
+              - { name: titulo, label: Nome, widget: string }
+              - { name: descricao, label: Descrição, widget: text }
+              - { name: preco, label: Preço a partir de (R$), widget: number, value_type: float, min: 0, step: 0.01 }
+              - { name: foto, label: Foto, widget: image, media_library: &limite { config: { max_file_size: 1000000 } } }
+              - { name: tom, label: Cor de fundo, widget: color, default: '#3b2213' }
+              - { name: realce, label: Cor de destaque, widget: color, default: '#c98b2b' }
+
+      - name: capa
+        label: Capa
+        file: src/conteudo/capa.json
+        fields:
+          - { name: titulo, label: Título, widget: string }
+          - { name: tituloEnfase, label: Final do título (destacado), widget: string }
+          - { name: subtitulo, label: Subtítulo, widget: text }
+          - { name: botao, label: Texto do botão, widget: string }
+          - { name: mensagem, label: Mensagem pronta do WhatsApp, widget: text }
+          - { name: role, label: Aviso para rolar a página, widget: string }
+          - { name: fotoA, label: Foto 1, widget: image, media_library: *limite }
+          - { name: fotoB, label: Foto 2, widget: image, media_library: *limite }
+
+      - name: encomenda
+        label: Encomendas
+        file: src/conteudo/encomenda.json
+        fields:
+          - { name: titulo, label: Título, widget: text }
+          - { name: texto, label: Texto, widget: text }
+          - { name: botao, label: Texto do botão, widget: string }
+          - { name: mensagem, label: Mensagem pronta do WhatsApp, widget: text }
+          - { name: foto, label: Foto, widget: image, media_library: *limite }
+          - { name: fotoAlt, label: Descrição da foto (para leitores de tela), widget: string }
+
+      - name: historia
+        label: História
+        file: src/conteudo/historia.json
+        fields:
+          - { name: titulo, label: Título, widget: string }
+          - { name: texto, label: Texto, widget: text }
+          - { name: instagram, label: Texto do link do Instagram, widget: string }
+          - { name: fotoA, label: Foto 1, widget: image, media_library: *limite }
+          - { name: fotoB, label: Foto 2, widget: image, media_library: *limite }
+
+      - name: chamada
+        label: Chamada final
+        file: src/conteudo/chamada.json
+        fields:
+          - { name: titulo, label: Título, widget: string }
+          - { name: texto, label: Texto, widget: text }
+          - { name: botao, label: Texto do botão, widget: string }
+          - { name: mensagem, label: Mensagem pronta do WhatsApp, widget: text }
+          - { name: prazo, label: Linha de prazo, widget: string }
+          - { name: instagram, label: Texto do link do Instagram, widget: string }
+
+      - name: loja
+        label: Contato e horários
+        file: src/conteudo/loja.json
+        fields:
+          - name: whatsapp
+            label: WhatsApp que recebe os pedidos
+            widget: string
+            pattern: ['^\d{12,13}$', 'Só números, com 55 e DDD. Ex.: 5511999998888']
+          - { name: endereco, label: Endereço, widget: string }
+          - { name: cidade, label: Cidade, widget: string }
+          - { name: cep, label: CEP, widget: string }
+          - { name: telefone, label: Telefone, widget: string, hint: 'Com DDD. Ex.: (11) 99999-8888' }
+          - { name: instagram, label: Instagram (@), widget: string }
+          - { name: instagramUrl, label: Link do Instagram, widget: string }
+          - name: horarios
+            label: Horários
+            label_singular: horário
+            widget: list
+            summary: '{{fields.dias}} · {{fields.horas}}'
+            fields:
+              - { name: dias, label: Dias, widget: string }
+              - { name: horas, label: Horas, widget: string }
+              - name: schema
+                label: Horário para o Google
+                widget: string
+                required: false
+                hint: 'Dias em inglês (Mo Tu We Th Fr Sa Su) e horas de 0 a 24. Ex.: Tu-Fr 09:00-18:00. Deixe vazio nos dias fechados.'
+
+      - name: faq
+        label: Perguntas frequentes
+        file: src/conteudo/faq.json
+        fields:
+          - { name: titulo, label: Título, widget: string }
+          - name: itens
+            label: Perguntas
+            label_singular: pergunta
+            widget: list
+            summary: '{{fields.pergunta}}'
+            fields:
+              - { name: pergunta, label: Pergunta, widget: string }
+              - { name: resposta, label: Resposta, widget: text }

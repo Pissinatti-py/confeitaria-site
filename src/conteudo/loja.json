@@ -1,0 +1,25 @@
+{
+  "whatsapp": "",
+  "endereco": "Rua Exemplo, 123 · Bairro Centro",
+  "cidade": "Cidade · UF",
+  "cep": "00000-000",
+  "telefone": "(00) 00000-0000",
+  "instagram": "@chantillyamericano1",
+  "instagramUrl": "https://www.instagram.com/chantillyamericano1",
+  "horarios": [
+    {
+      "dias": "Terça a sexta",
+      "horas": "9h às 18h",
+      "schema": "Tu-Fr 09:00-18:00"
+    },
+    {
+      "dias": "Sábado",
+      "horas": "9h às 14h",
+      "schema": "Sa 09:00-14:00"
+    },
+    {
+      "dias": "Domingo e segunda",
+      "horas": "fechado"
+    }
+  ]
+}

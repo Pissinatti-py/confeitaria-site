@@ -1,0 +1,36 @@
+{
+  "itens": [
+    {
+      "titulo": "Bolo de fubá cremoso",
+      "descricao": "Milho, erva-doce e uma casquinha que estala. Sai do forno de manhã e acaba antes das quatro.",
+      "preco": 45,
+      "foto": "/fotos/cardapio-fuba.webp",
+      "tom": "#3b2213",
+      "realce": "#c98b2b"
+    },
+    {
+      "titulo": "Caseirinho de limão",
+      "descricao": "Massa fofinha de limão coberta com calda branca e raspas de limão tahiti por cima.",
+      "preco": 38,
+      "foto": "/fotos/cardapio-limao.webp",
+      "tom": "#1f2a17",
+      "realce": "#8fb04a"
+    },
+    {
+      "titulo": "Bolo de camadas com morango",
+      "descricao": "Massa, mousse de chocolate e creme, finalizado com raspas de chocolate e morangos frescos.",
+      "preco": 95,
+      "foto": "/fotos/cardapio-morango.webp",
+      "tom": "#3a1419",
+      "realce": "#c0263f"
+    },
+    {
+      "titulo": "Barca de doces",
+      "descricao": "Brigadeiro, beijinho e docinhos finos arrumados numa barca pronta para presentear.",
+      "preco": 120,
+      "foto": "/fotos/cardapio-doces.webp",
+      "tom": "#2a1630",
+      "realce": "#9a2f72"
+    }
+  ]
+}

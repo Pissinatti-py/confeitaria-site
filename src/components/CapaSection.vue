@@ -3,8 +3,6 @@ import { ref } from 'vue'
 import DoceIlustracao from './DoceIlustracao.vue'
 import { NOME_CONFEITARIA, capa, whatsapp } from '@/content'
 import { usePonteiro } from '@/ponteiro'
-import capaNinho from '@/assets/fotos/site/capa-ninho.webp'
-import capaMorangoffe from '@/assets/fotos/site/capa-morangoffe.webp'
 
 const palco = ref<HTMLElement | null>(null)
 const { mover, sair } = usePonteiro(palco)
@@ -14,10 +12,10 @@ const { mover, sair } = usePonteiro(palco)
   <header ref="palco" class="capa ganache grao" @pointermove="mover" @pointerleave="sair">
     <div class="capa-camada capa-brilho"></div>
     <div class="capa-doce capa-doce--a">
-      <DoceIlustracao :foto="capaNinho" class="doce-a" />
+      <DoceIlustracao :foto="capa.fotoA" class="doce-a" />
     </div>
     <div class="capa-doce capa-doce--b">
-      <DoceIlustracao :foto="capaMorangoffe" class="doce-b" />
+      <DoceIlustracao :foto="capa.fotoB" class="doce-b" />
     </div>
     <div class="capa-luz"></div>
 

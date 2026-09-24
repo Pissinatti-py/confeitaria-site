@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { encomenda, whatsapp } from '@/content'
-import fotoBolo from '@/assets/fotos/site/encomenda-bolo.webp'
 </script>
 
 <template>
@@ -8,8 +7,8 @@ import fotoBolo from '@/assets/fotos/site/encomenda-bolo.webp'
     <div class="encomenda-quadro">
       <figure class="encomenda-foto">
         <img
-          :src="fotoBolo"
-          alt="Bolo de casamento branco de vários andares com flores lilás"
+          :src="encomenda.foto"
+          :alt="encomenda.fotoAlt"
           width="1280"
           height="1600"
           loading="lazy"

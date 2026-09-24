@@ -20,7 +20,7 @@ const dados = [
       postalCode: loja.cep,
       addressCountry: 'BR',
     },
-    openingHours: loja.horarios.flatMap((h) => h.schema ?? []),
+    openingHours: loja.horarios.flatMap((h) => h.schema || []),
     sameAs: [loja.instagramUrl],
   },
   {

@@ -1,0 +1,29 @@
+{
+  "titulo": "Perguntas frequentes",
+  "itens": [
+    {
+      "pergunta": "Quantas pessoas cada tamanho serve?",
+      "resposta": "P (15 cm) serve de 10 a 12 fatias, M (20 cm) cerca de 20 e G (25 cm) cerca de 30. Para festas maiores, montamos bolos de andares."
+    },
+    {
+      "pergunta": "Com quanto tempo de antecedência preciso encomendar?",
+      "resposta": "Pedimos 48 horas para bolos do cardápio. Bolos de casamento e decorações especiais pedem pelo menos duas semanas."
+    },
+    {
+      "pergunta": "Vocês entregam? Qual a região e a taxa?",
+      "resposta": "Entregamos na cidade e em bairros próximos. A taxa depende da distância e é informada no orçamento. Também dá para retirar na loja."
+    },
+    {
+      "pergunta": "Quais as formas de pagamento?",
+      "resposta": "Pix, cartão de crédito e débito e dinheiro. Encomendas são confirmadas com 50% de sinal."
+    },
+    {
+      "pergunta": "Fazem opções sem lactose, sem glúten ou sem açúcar?",
+      "resposta": "Temos opções sem lactose e com menos açúcar. Consulte pelo WhatsApp, porque a cozinha não é livre de glúten."
+    },
+    {
+      "pergunta": "Posso personalizar sabor e decoração?",
+      "resposta": "Sim. Você escolhe massa, recheio, cobertura e tema, e mandamos uma prévia antes de começar."
+    }
+  ]
+}

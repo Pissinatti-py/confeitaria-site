@@ -13,11 +13,28 @@ function voltarAoTopo() {
   const suave = window.matchMedia('(prefers-reduced-motion: no-preference)').matches
   window.scrollTo({ top: 0, behavior: suave ? 'smooth' : 'auto' })
 }
+
+let toques = 0
+let ultimoToque = 0
+
+function tocarLogo() {
+  const agora = Date.now()
+  toques = agora - ultimoToque < 800 ? toques + 1 : 1
+  ultimoToque = agora
+  if (toques === 5) location.assign('/admin/')
+}
 </script>
 
 <template>
   <footer class="rodape">
-    <img class="marca" :src="logo" :alt="NOME_CONFEITARIA" width="795" height="318" />
+    <img
+      class="marca"
+      :src="logo"
+      :alt="NOME_CONFEITARIA"
+      width="795"
+      height="318"
+      @click="tocarLogo"
+    />
     <span class="ornamento" aria-hidden="true"></span>
 
     <div class="colunas">
@@ -105,6 +122,7 @@ function voltarAoTopo() {
   outline: 1px solid var(--carmim);
   outline-offset: -6px;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+  touch-action: manipulation;
 }
 .ornamento {
   position: relative;
