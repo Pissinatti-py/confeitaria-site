@@ -5,6 +5,7 @@ import App from './App.vue'
 import { NOME_CONFEITARIA, faq, loja } from './content'
 
 const site = import.meta.env.VITE_SITE_URL
+const [cidade, estado] = loja.cidade.split('·').map((parte) => parte.trim())
 const dados = [
   {
     '@context': 'https://schema.org',
@@ -16,7 +17,8 @@ const dados = [
     address: {
       '@type': 'PostalAddress',
       streetAddress: loja.endereco,
-      addressLocality: loja.cidade,
+      addressLocality: cidade,
+      addressRegion: estado,
       postalCode: loja.cep,
       addressCountry: 'BR',
     },
